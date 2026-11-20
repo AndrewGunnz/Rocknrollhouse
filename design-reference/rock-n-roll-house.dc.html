@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+html,body{margin:0;background:#120f0d;color:#efe9e1;font-family:'Archivo',sans-serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:#efe9e1;text-decoration:none}a:hover{color:oklch(0.66 0.2 32)}
+@keyframes rnr-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes rnr-spin{to{transform:rotate(360deg)}}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#120f0d">
+
+<header style="position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding:14px clamp(20px,4vw,56px);background:rgba(18,15,13,.92);backdrop-filter:blur(8px);border-bottom:1px solid #2a2420">
+  <a href="#top" style="display:flex;align-items:center;gap:12px">
+    <img src="https://images.squarespace-cdn.com/content/v1/67ce14db6ade596609197028/6ec9f01a-9700-43ae-8b2f-d8e9e520572f/RnRH1.jpg?format=300w" alt="Rock N Roll House" style="width:44px;height:44px;border-radius:50%;object-fit:cover"></img>
+    <span style="font-family:'Big Shoulders Display';font-weight:900;font-size:22px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap">Rock N Roll House</span>
+  </a>
+  <nav style="display:flex;flex-wrap:wrap;gap:clamp(12px,2vw,32px);font-size:12px;font-family:'IBM Plex Mono';text-transform:uppercase;letter-spacing:.06em">
+    <a href="#about">About</a><a href="#reviews">Reviews</a><a href="#memberships">Memberships</a><a href="#store">Store</a><a href="#contact">Contact</a>
+  </nav>
+  <a href="#memberships" style="padding:11px 18px;background:oklch(0.62 0.2 32);color:#fff;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap" style-hover="background:oklch(0.55 0.2 32);color:#fff">Book a drop-in</a>
+</header>
+
+<section id="top" data-screen-label="Hero" style="position:relative;min-height:88vh;display:grid;align-items:end;overflow:hidden">
+  <img src="https://images.squarespace-cdn.com/content/v1/67ce14db6ade596609197028/6027633a-a3da-4c9a-b5c5-cc4edfdd2145/DSCN4440.JPG?format=2500w" alt="Rock N Roll House gym" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.15) brightness(.55)"></img>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,15,13,.2) 30%,#120f0d 96%)"></div>
+  <div style="position:relative;padding:120px clamp(20px,4vw,56px) 56px;max-width:1400px">
+    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:oklch(0.72 0.17 32);margin-bottom:18px">Vaudreuil-Dorion · Martial arts</div>
+    <h1 style="margin:0;font-family:'Big Shoulders Display';font-weight:900;text-transform:uppercase;line-height:.84;font-size:clamp(72px,14vw,220px);letter-spacing:-.01em"><span style="display:block">Where rhythm</span>meets <span style="color:oklch(0.66 0.2 32)">discipline</span></h1>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;margin-top:36px">
+      <a href="#memberships" style="padding:16px 26px;background:#efe9e1;color:#120f0d;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:15px" style-hover="background:oklch(0.66 0.2 32);color:#fff">See memberships</a>
+      <a href="tel:4385356855" style="padding:16px 26px;border:1px solid #efe9e1;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:15px">438 535 6855</a>
+    </div>
+  </div>
+</section>
+
+<div style="overflow:hidden;border-top:1px solid #2a2420;border-bottom:1px solid #2a2420;background:oklch(0.62 0.2 32);color:#120f0d;padding:16px 0">
+  {{ marquee }}
+</div>
+
+<section id="about" data-screen-label="About" style="padding:clamp(72px,10vw,140px) clamp(20px,4vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(40px,6vw,96px);max-width:1400px;margin:0 auto">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;align-content:start">
+    <img src="https://images.squarespace-cdn.com/content/v1/67ce14db6ade596609197028/8d593d47-5da9-4db9-816c-8e9acf46c24a/DSCN4443.JPG?format=1000w" alt="" style="grid-column:1 / 3;width:100%;aspect-ratio:16/10;object-fit:cover;filter:grayscale(.3)"></img>
+    <img src="https://images.squarespace-cdn.com/content/v1/67ce14db6ade596609197028/effb2d5b-1df0-48f0-a97d-85747cc6cf71/Screenshot_20210301-200345%7E2.png?format=750w" alt="" style="width:100%;aspect-ratio:1;object-fit:cover"></img>
+    <img src="https://images.squarespace-cdn.com/content/v1/67ce14db6ade596609197028/7c366d34-add2-4dc8-ba0e-f5624f42f98d/Screenshot_20210801-212609%7E3.png?format=750w" alt="" style="width:100%;aspect-ratio:1;object-fit:cover"></img>
+  </div>
+  <div>
+    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:oklch(0.72 0.17 32);margin-bottom:20px">Side A · The house</div>
+    <h2 style="margin:0 0 28px;font-family:'Big Shoulders Display';font-weight:900;text-transform:uppercase;font-size:clamp(44px,5.5vw,76px);line-height:.92">More than a place to train</h2>
+    <div style="display:flex;flex-direction:column;gap:18px;font-size:18px;line-height:1.6;color:#cfc7bd;max-width:620px;text-wrap:pretty">
+      <p style="margin:0">At <strong style="color:#efe9e1">ROCK ‘N’ ROLL HOUSE</strong>, the sound of striking gloves and bare feet on mats echoes louder than any amplifier. This is a space where the <strong style="color:#efe9e1">timeless values of martial arts</strong> meet the rhythm and energy of rock 'n roll — raw, honest, and deeply personal.</p>
+      <p style="margin:0">Our gym is more than a place to train. It's where people come to <strong style="color:#efe9e1">build physical strength, mental focus, and emotional resilience</strong>. With every class, students of all levels develop the tools to move with purpose, fight with intention, and carry themselves with confidence — inside and outside the gym.</p>
+    </div>
+    <div style="margin-top:40px;font-family:'IBM Plex Mono';font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:#8a8076;margin-bottom:12px">We honor the old-school mindset</div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid #2a2420">
+      <div style="padding:18px 0;border-bottom:1px solid #2a2420;display:flex;gap:14px;align-items:baseline"><span style="font-family:'IBM Plex Mono';font-size:12px;color:oklch(0.72 0.17 32)">01</span><span style="font-size:18px;font-weight:500">Respect for the craft</span></div>
+      <div style="padding:18px 0;border-bottom:1px solid #2a2420;display:flex;gap:14px;align-items:baseline"><span style="font-family:'IBM Plex Mono';font-size:12px;color:oklch(0.72 0.17 32)">02</span><span style="font-size:18px;font-weight:500">Discipline in the process</span></div>
+      <div style="padding:18px 0;border-bottom:1px solid #2a2420;display:flex;gap:14px;align-items:baseline"><span style="font-family:'IBM Plex Mono';font-size:12px;color:oklch(0.72 0.17 32)">03</span><span style="font-size:18px;font-weight:500">Humility in learning</span></div>
+      <div style="padding:18px 0;border-bottom:1px solid #2a2420;display:flex;gap:14px;align-items:baseline"><span style="font-family:'IBM Plex Mono';font-size:12px;color:oklch(0.72 0.17 32)">04</span><span style="font-size:18px;font-weight:500">Courage in challenge</span></div>
+    </div>
+    <p style="margin:32px 0 0;font-size:18px;line-height:1.6;color:#cfc7bd;max-width:620px">And we believe that everyone has a rhythm — a unique timing, a way of moving, of learning, of growing. Our job is to help you <strong style="color:#efe9e1">find it, refine it, and own it</strong>.</p>
+  </div>
+</section>
+
+<section id="reviews" data-screen-label="Reviews" style="padding:clamp(72px,10vw,120px) clamp(20px,4vw,56px);background:#efe9e1;color:#120f0d">
+  <div style="max-width:1400px;margin:0 auto">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:24px;margin-bottom:48px">
+      <div>
+        <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:oklch(0.5 0.18 32);margin-bottom:16px">Liner notes · Google reviews</div>
+        <h2 style="margin:0;font-family:'Big Shoulders Display';font-weight:900;text-transform:uppercase;font-size:clamp(44px,5.5vw,76px);line-height:.92">From the crowd</h2>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px">
+        <span style="font-family:'Big Shoulders Display';font-weight:900;font-size:64px;line-height:1">{{ rating }}</span>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <span style="color:oklch(0.55 0.19 32);font-size:20px;letter-spacing:2px">★★★★★</span>
+          <a href="https://www.google.com/maps/search/Rock+N+Roll+House+Vaudreuil-Dorion" style="font-family:'IBM Plex Mono';font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#120f0d;text-decoration:underline">Read all on Google</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+        <article style="background:#fff;border:1px solid #d9d1c6;display:flex;flex-direction:column">
+          <div style="aspect-ratio:4/3;background:repeating-linear-gradient(135deg,#ece6dd 0 8px,#e4ddd2 8px 16px)">
+            <image-slot id="{{ r.slot }}" shape="rect" placeholder="Drop Google review photo"></image-slot>
+          </div>
+          <div style="padding:24px;display:flex;flex-direction:column;gap:14px;flex:1">
+            <span style="color:oklch(0.55 0.19 32);letter-spacing:2px">★★★★★</span>
+            <p style="margin:0;font-size:17px;line-height:1.55;flex:1">{{ r.text }}</p>
+            <div style="font-family:'IBM Plex Mono';font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#6b625a">{{ r.name }}</div>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="memberships" data-screen-label="Memberships" style="padding:clamp(72px,10vw,140px) clamp(20px,4vw,56px)">
+  <div style="max-width:1400px;margin:0 auto">
+    <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:oklch(0.72 0.17 32);margin-bottom:16px">Side B · Memberships and drop ins</div>
+    <h2 style="margin:0 0 48px;font-family:'Big Shoulders Display';font-weight:900;text-transform:uppercase;font-size:clamp(44px,5.5vw,76px);line-height:.92">Pick your record</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,72px);align-items:start">
+      <div style="border-top:1px solid #2a2420">
+        <sc-for list="{{ tiers }}" as="t" hint-placeholder-count="6">
+          <button onClick="{{ t.select }}" style="{{ t.rowStyle }}">
+            <span style="font-family:'IBM Plex Mono';font-size:12px;opacity:.7;width:28px">{{ t.track }}</span>
+            <span style="flex:1;display:flex;flex-direction:column;gap:4px">
+              <span style="font-family:'Big Shoulders Display';font-weight:900;font-size:30px;text-transform:uppercase;line-height:1">{{ t.name }}</span>
+              <span style="font-family:'IBM Plex Mono';font-size:12px;text-transform:uppercase;letter-spacing:.06em;opacity:.75">{{ t.freq }}</span>
+            </span>
+            <span style="font-family:'Big Shoulders Display';font-weight:700;font-size:30px">{{ t.price }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="position:sticky;top:96px;background:#1c1815;border:1px solid #2a2420;padding:clamp(28px,3.5vw,48px);display:flex;flex-direction:column;gap:20px">
+        <div style="display:flex;align-items:center;gap:20px">
+          {{ disc }}
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <span style="font-family:'IBM Plex Mono';font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#8a8076">{{ sel.track }} · {{ sel.freq }}</span>
+            <span style="font-family:'Big Shoulders Display';font-weight:900;font-size:clamp(36px,4vw,54px);text-transform:uppercase;line-height:.95">{{ sel.name }}</span>
+          </div>
+        </div>
+        <p style="margin:0;font-size:22px;font-weight:700;line-height:1.3">{{ sel.tagline }}</p>
+        <sc-for list="{{ sel.body }}" as="p" hint-placeholder-count="2">
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#cfc7bd;text-wrap:pretty">{{ p }}</p>
+        </sc-for>
+        <p style="margin:0;font-size:16px;font-weight:500;color:oklch(0.72 0.17 32)">{{ sel.closer }}</p>
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;border-top:1px solid #2a2420;padding-top:20px">
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <span style="font-family:'Big Shoulders Display';font-weight:900;font-size:44px;line-height:1">{{ sel.priceLong }}</span>
+            <span style="font-family:'IBM Plex Mono';font-size:12px;color:#8a8076;max-width:360px;line-height:1.5">{{ sel.terms }}</span>
+          </div>
+          <a href="mailto:rocknrollhousemma@outlook.com" style="padding:14px 22px;background:oklch(0.62 0.2 32);color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:14px" style-hover="background:oklch(0.55 0.2 32);color:#fff">{{ sel.cta }}</a>
+        </div>
+      </div>
+    </div>
+    <p style="margin:40px 0 0;font-family:'IBM Plex Mono';font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:#8a8076">Visit the gym to enjoy exclusive promotions</p>
+  </div>
+</section>
+
+<section id="store" data-screen-label="Store" style="padding:clamp(72px,10vw,120px) clamp(20px,4vw,56px);border-top:1px solid #2a2420">
+  <div style="max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:clamp(32px,5vw,72px)">
+    <div>
+      <div style="font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:oklch(0.72 0.17 32);margin-bottom:16px">Merch table</div>
+      <h2 style="margin:0 0 28px;font-family:'Big Shoulders Display';font-weight:900;text-transform:uppercase;font-size:clamp(44px,5.5vw,76px);line-height:.92">Rock 'n' roll shop</h2>
+      <img src="https://images.squarespace-cdn.com/content/v1/67ce14db6ade596609197028/469d89a3-fc17-405e-b143-6a6113de0b78/DSCN4446.JPG?format=1000w" alt="Gym shop" style="width:100%;aspect-ratio:4/3;object-fit:cover"></img>
+    </div>
+    <div style="border-top:1px solid #2a2420;align-self:end">
+      <sc-for list="{{ shop }}" as="s" hint-placeholder-count="8">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:18px 0;border-bottom:1px solid #2a2420">
+          <span style="font-family:'Big Shoulders Display';font-weight:700;font-size:26px;text-transform:uppercase">{{ s.name }}</span>
+          <span style="font-family:'IBM Plex Mono';font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:{{ s.color }};text-align:right">{{ s.status }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<footer id="contact" data-screen-label="Contact" style="position:relative;overflow:hidden;padding:clamp(72px,10vw,120px) clamp(20px,4vw,56px) 40px;background:oklch(0.62 0.2 32);color:#120f0d">
+  <div style="max-width:1400px;margin:0 auto">
+    <h2 style="margin:0;font-family:'Big Shoulders Display';font-weight:900;text-transform:uppercase;font-size:clamp(56px,10vw,160px);line-height:.85">Come train. Come sweat. Come learn.</h2>
+    <p style="margin:24px 0 56px;font-size:22px;font-weight:700">One class at a time, you’ll find your rhythm.!</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:32px;border-top:2px solid #120f0d;padding-top:28px">
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono';font-size:12px;text-transform:uppercase;letter-spacing:.1em">Address</span><span style="font-size:18px;font-weight:500">1 Av de la Fabrique - Suite 001<span style="display:block">Vaudreuil-Dorion J7V 0X1</span></span></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono';font-size:12px;text-transform:uppercase;letter-spacing:.1em">Phone</span><a href="tel:4385356855" style="font-size:18px;font-weight:500;color:#120f0d">438 535 6855</a></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono';font-size:12px;text-transform:uppercase;letter-spacing:.1em">Email</span><a href="mailto:rocknrollhousemma@outlook.com" style="font-size:18px;font-weight:500;color:#120f0d;word-break:break-all">rocknrollhousemma@outlook.com</a></div>
+      <div style="display:flex;flex-direction:column;gap:6px"><span style="font-family:'IBM Plex Mono';font-size:12px;text-transform:uppercase;letter-spacing:.1em">Follow</span><a href="https://www.instagram.com/rocknroll_house" style="font-size:18px;font-weight:500;color:#120f0d">@rocknroll_house</a></div>
+    </div>
+    <div style="margin-top:56px;font-family:'IBM Plex Mono';font-size:12px;text-transform:uppercase;letter-spacing:.1em">© Rock ‘N’ Roll House</div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;marqueeSpeed&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Slow&quot;,&quot;Normal&quot;,&quot;Fast&quot;,&quot;Off&quot;],&quot;default&quot;:&quot;Normal&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;rating&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5.0&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;reviews&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;{name:string,text:string}[]&quot;}}">
+class Component extends DCLogic {
+  state = { sel: 0 };
+  tiers = [
+    { name: 'Vinyl', freq: '1 class / week · entry level', price: '$70', priceLong: '$70 /mo', tagline: 'Where it starts. Where you earn your first scars.',
+      body: ['The Vinyl membership is for beginners stepping into the fight for the first time. No experience. No expectations. Just the decision to show up and have fun.',
+        'With one class per week, this is about getting comfortable, learning the basics, and enjoying the process. You choose your path: Muay Thai, Brazilian Jiu Jitsu or Boxing.',
+        'Need a little more? Additional classes are automatically just $15 each.'],
+      closer: 'Come in. Hit hard. Walk out like a legend.', contract: true, disc: '#1a1a1a' },
+    { name: 'Gold Record', freq: '2 classes / week', price: '$100', priceLong: '$100 /mo', tagline: 'You’re not new anymore. Now you build.',
+      body: ['With two classes per week, consistency kicks in — and that’s where real progress begins. Timing gets sharper. Movements feel more natural.',
+        'This is the level where amateurs are shaped — not by talent, but by showing up again and again. Additional classes are just $15 each.'],
+      closer: 'Step in. Show up. Rise like a rockstar.', contract: true, disc: 'oklch(0.78 0.13 85)' },
+    { name: 'Platinum Record', freq: '3 classes / week', price: '$145', priceLong: '$145 /mo', tagline: 'You don’t just train anymore. You change.',
+      body: ['With three classes per week, your body adapts, your skills sharpen, and your mindset hardens. People notice.',
+        'The more you train, the more value you get. At this level, your cost per class drops, and your results go up. Every extra class is just $15.'],
+      closer: 'Plug in. Light it up. Shock the world.', contract: true, disc: '#cfd2d6' },
+    { name: 'Diamond Record', freq: 'Unlimited · all styles', price: '$170', priceLong: '$170 /mo', tagline: 'This isn’t something you do. It’s who you are.',
+      body: ['For those who’ve crossed the line from training… to living it. With unlimited classes, you’re fully immersed — refining every detail, every round, every edge.',
+        'Train often enough, and this becomes the smartest investment you can make in yourself. Unlimited access. All styles. Full freedom.'],
+      closer: 'The house is yours — now bring the noise.', contract: true, disc: 'oklch(0.85 0.06 220)' },
+    { name: 'Drop in · Stage dive', freq: 'Single class · no commitment', price: '$40', priceLong: '$40 /class', tagline: 'No strings. Just sweat, style, and straight-up Rock n Roll.',
+      body: ['Step into Rock n Roll House for a single, high-voltage class — boxing, Muay Thai, Jiu-Jitsu, or a crushing core session.',
+        'Backstage pass: if you join a membership after your drop-in, you’ll get $40 off your first month.'],
+      closer: 'Come for the chaos. Stay for the journey.', terms: '+ tax per class', cta: 'Book a drop-in', disc: 'oklch(0.62 0.2 32)' },
+    { name: 'Private Coaching', freq: '1-on-1 · tailored', price: 'Ask', priceLong: 'On request', tagline: 'No crowd. No noise. Just correction and progress.',
+      body: ['1-on-1 coaching designed to fix weaknesses, sharpen strengths, and accelerate your development — striking, grappling, conditioning, fight IQ, or competition preparation.',
+        'Whether you’re a beginner wanting structure or a competitor fine-tuning performance, this is the fastest way to level up.'],
+      closer: 'Train smart. Train direct. Train personal.', terms: 'Packages available upon request', cta: 'Ask about packages', disc: '#efe9e1' }
+  ];
+  disciplines = ['Muay Thai', 'MMA', 'Brazilian Jiu Jitsu', 'Personal training', 'Kids programs', "Parkinson's boxing", 'Neurodiverse martial arts program'];
+  marqueeEl(speed) {
+    const h = React.createElement;
+    const items = [...this.disciplines, ...this.disciplines].map((d, i) =>
+      h('span', { key: i, style: { display: 'inline-flex', alignItems: 'center', gap: 28, paddingRight: 28 } },
+        h('span', null, d), h('span', { style: { fontSize: '0.6em' } }, '☆')));
+    return h('div', { style: { display: 'flex', width: 'max-content', whiteSpace: 'nowrap', fontFamily: "'Big Shoulders Display'", fontWeight: 900, fontSize: 40, textTransform: 'uppercase', lineHeight: 1, animation: speed ? `rnr-marquee ${speed}s linear infinite` : 'none' } }, items);
+  }
+  discEl(color) {
+    const h = React.createElement;
+    return h('div', { style: { flex: 'none', width: 84, height: 84, borderRadius: '50%', background: `repeating-radial-gradient(circle, #0c0a09 0 2px, #1d1917 2px 4px)`, display: 'grid', placeItems: 'center', animation: 'rnr-spin 4s linear infinite', boxShadow: '0 0 0 1px #2a2420' } },
+      h('div', { style: { width: 30, height: 30, borderRadius: '50%', background: color, display: 'grid', placeItems: 'center' } },
+        h('div', { style: { width: 5, height: 5, borderRadius: '50%', background: '#120f0d' } })));
+  }
+  renderVals() {
+    const speed = { Slow: 60, Normal: 35, Fast: 18, Off: 0 }[this.props.marqueeSpeed ?? 'Normal'];
+    const s = this.tiers[this.state.sel];
+    const reviews = (this.props.reviews ?? [
+      { name: 'Reviewer name · Google', text: 'Paste a Google review here.' },
+      { name: 'Reviewer name · Google', text: 'Paste a Google review here.' },
+      { name: 'Reviewer name · Google', text: 'Paste a Google review here.' }
+    ]).map((r, i) => ({ ...r, slot: 'review-photo-' + (i + 1) }));
+    return {
+      marquee: this.marqueeEl(speed),
+      disc: this.discEl(s.disc),
+      rating: this.props.rating ?? '5.0',
+      reviews,
+      tiers: this.tiers.map((t, i) => {
+        const on = i === this.state.sel;
+        return { ...t, track: 'A' + (i + 1),
+          select: () => this.setState({ sel: i }),
+          rowStyle: { width: '100%', display: 'flex', alignItems: 'center', gap: 18, padding: '20px 16px', border: 'none', borderBottom: '1px solid #2a2420', background: on ? 'oklch(0.62 0.2 32)' : 'transparent', color: on ? '#fff' : '#efe9e1', cursor: 'pointer', textAlign: 'left', font: 'inherit', transition: 'background .2s' } };
+      }),
+      sel: { ...s, track: 'A' + (this.state.sel + 1), terms: s.terms ?? '+ tax per month on a 1 year contract (contract can be cancelled without additional charges)', cta: s.cta ?? 'Join ' + s.name },
+      shop: [['Rashguards', 'Coming soon'], ['Patches', 'At the gym shop'], ['Matsuru BJJ Gi', 'At the gym shop'], ['NFC Gloves', 'At the gym shop'], ['Shirt', 'Adults & kids · all sizes'], ['Handwraps', 'At the gym shop'], ['Mouth guard', 'At the gym shop'], ['Defense soap', 'At the gym shop']]
+        .map(([name, status]) => ({ name, status, color: status === 'Coming soon' ? 'oklch(0.72 0.17 32)' : '#8a8076' }))
+    };
+  }
+}
+</script>
+</body>
+</html>

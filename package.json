@@ -1,0 +1,8 @@
+{
+  "name": "rocknrollhouse",
+  "private": true,
+  "description": "Rock N Roll House website (static).",
+  "scripts": {
+    "preview": "npx --yes serve@14.2.4 -l 4173 ."
+  }
+}
