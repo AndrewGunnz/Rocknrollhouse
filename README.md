@@ -9,18 +9,20 @@ visual direction of the design ZIP (`design-reference/rock-n-roll-house.dc.html`
 npm run preview
 ```
 
-Then open http://localhost:4173. (`python3 -m http.server 4173` works too.)
+Then open http://localhost:4173. (`python3 -m http.server 4173 -d public` works too.)
 **Not deployed.** Nothing has been published yet; the live Squarespace site is unchanged.
 
 ## Structure
 
 | Path | Purpose |
 | --- | --- |
-| `index.html` | The whole site: hero, classes, live schedule, first class, about and coaches, reviews, memberships, shop, contact |
-| `landing/`, `home/`, `cart/` | Old Squarespace URLs. They redirect to `/`, keeping `#schedule`, `#memberships`, `#store` and `#contact-us` working |
-| `assets/css/site.css` | Design tokens and layout |
-| `assets/js/site.js` | Mobile menu, membership tabs, Mindbody fallback, Google reviews renderer |
-| `assets/img/` | Gym-owned photos from the current site, re-encoded to WebP at responsive sizes |
+| `public/index.html` | The whole site: hero, classes, live schedule, first class, about and coaches, reviews, memberships, shop, contact |
+| `public/landing/`, `home/`, `cart/` | Old Squarespace URLs. They redirect to `/`, keeping `#schedule`, `#memberships`, `#store` and `#contact-us` working |
+| `public/assets/css/site.css` | Design tokens and layout |
+| `public/assets/js/site.js` | Mobile menu, membership tabs, Mindbody fallback, Google reviews renderer |
+| `public/assets/img/` | Gym-owned photos from the current site, re-encoded to WebP at responsive sizes |
+| `public/404.html` | Not-found page |
+| `wrangler.jsonc` | Cloudflare Workers config: serves `public/` as static assets |
 | `design-reference/` | The ZIP's design source, kept for reference |
 
 ## Mindbody (do not change these values)
@@ -66,5 +68,5 @@ Only add a photo once the reviewer has given permission, or serve it through the
 - [ ] Confirm whether Boxing is still offered. It isn't on the Mindbody schedule, so the Vinyl copy now says
       "Muay Thai or Brazilian Jiu Jitsu".
 - [ ] Add a French version if wanted. The current site is English-only, so this redesign is too.
-- [ ] Choose hosting. This is a static site, so it needs a static host (Netlify, Cloudflare Pages, GitHub Pages)
-      with the domain pointed at it, or the sections need rebuilding in Squarespace.
+- [ ] Cloudflare Workers (`rocknrollhousemma`) deploys with `npx wrangler deploy` and needs no build command.
+      Its production branch must exist in GitHub (it's set to `main`).
