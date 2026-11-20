@@ -1,0 +1,41 @@
+<section class="page-hero page-hero-light on-light" aria-labelledby="page-title">
+  <div class="wrap section-head">
+    <div>
+      <h1 id="page-title">Schedule</h1>
+      <p class="lede">Live class times from Mindbody. Tap <strong>Book</strong> on any class to reserve your spot; booking opens in a Mindbody window.</p>
+    </div>
+    <a class="btn btn-ink" href="{{MINDBODY_SCHEDULE}}" target="_blank" rel="noopener">Open on Mindbody <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg><span class="visually-hidden">(opens in a new tab)</span></a>
+  </div>
+</section>
+
+<section class="schedule schedule-page on-light" aria-label="Class schedule">
+  <div class="wrap">
+    <div class="schedule-error" id="schedule-error" role="status">
+      The schedule didn't load on this page. <a href="{{MINDBODY_SCHEDULE}}" target="_blank" rel="noopener">Open the schedule on Mindbody</a> to see class times and book.
+    </div>
+
+    <div class="schedule-box" id="schedule-box">
+      <!-- Mindbody Schedules widget begin (unchanged from the live site) -->
+      <div class="mindbody-widget" data-widget-type="Schedules" data-widget-id="8026543dcae"></div>
+      <script type="text/plain" data-consent="mindbody" data-src="https://brandedweb.mindbodyonline.com/embed/widget.js"></script>
+      <!-- Mindbody Schedules widget end. The script above is the live site's embed script; it loads once
+           the visitor allows Mindbody in cookie settings (see site.js). -->
+      <div class="embed-placeholder" data-consent-placeholder="mindbody" hidden>
+        <p class="embed-placeholder-title">Show the live schedule here?</p>
+        <p>The schedule and booking are provided by Mindbody, which may set its own cookies.</p>
+        <div class="embed-placeholder-actions">
+          <button type="button" class="btn btn-ink" data-consent-allow="mindbody">Show schedule</button>
+          <a class="btn btn-line-dark" href="{{MINDBODY_SCHEDULE}}" target="_blank" rel="noopener">Open on Mindbody <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 12L12 4M6 4h6v6"/></svg><span class="visually-hidden">(opens in a new tab)</span></a>
+        </div>
+      </div>
+      <noscript>
+        <p>The live schedule needs JavaScript. <a href="{{MINDBODY_SCHEDULE}}">Open the schedule on Mindbody</a>.</p>
+      </noscript>
+    </div>
+
+    <div class="schedule-fallback">
+      <p>Schedule not showing? <a class="text-link" href="{{MINDBODY_SCHEDULE}}" target="_blank" rel="noopener">Open it on Mindbody</a> or call <a class="text-link" href="tel:+14385356855">438&nbsp;535&nbsp;6855</a>.</p>
+      <a class="text-link" href="/first-class/">New here? How your first class works</a>
+    </div>
+  </div>
+</section>

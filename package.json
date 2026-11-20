@@ -3,6 +3,7 @@
   "private": true,
   "description": "Rock N Roll House website (static).",
   "scripts": {
-    "preview": "npx --yes serve@14.2.4 -l 4173 public"
+    "build": "node build.mjs",
+    "preview": "node build.mjs && npx --yes serve@14.2.4 -l 4173 public"
   }
 }

@@ -9,21 +9,49 @@ visual direction of the design ZIP (`design-reference/rock-n-roll-house.dc.html`
 npm run preview
 ```
 
-Then open http://localhost:4173. (`python3 -m http.server 4173 -d public` works too.)
-**Not deployed.** Nothing has been published yet; the live Squarespace site is unchanged.
+This builds the site, then serves it at http://localhost:4173.
 
-## Structure
+## How it's built
 
-| Path | Purpose |
-| --- | --- |
-| `public/index.html` | The whole site: hero, classes, live schedule, first class, about and coaches, reviews, memberships, shop, contact |
-| `public/landing/`, `home/`, `cart/` | Old Squarespace URLs. They redirect to `/`, keeping `#schedule`, `#memberships`, `#store` and `#contact-us` working |
-| `public/assets/css/site.css` | Design tokens and layout |
-| `public/assets/js/site.js` | Mobile menu, membership tabs, Mindbody fallback, Google reviews renderer |
-| `public/assets/img/` | Gym-owned photos from the current site, re-encoded to WebP at responsive sizes |
-| `public/404.html` | Not-found page |
-| `wrangler.jsonc` | Cloudflare Workers config: serves `public/` as static assets |
-| `design-reference/` | The ZIP's design source, kept for reference |
+Each section has its own page. Page content lives in `src/pages/`. `build.mjs` (plain Node, no
+dependencies) wraps every page in the shared head, header, footer and cookie banner, then writes
+`public/`. **After editing anything in `src/`, run `npm run build` and commit `public/` too.**
+Cloudflare deploys `public/` as-is (no build step on Cloudflare).
+
+| URL | Source | Contents |
+| --- | --- | --- |
+| `/` | `src/pages/home.html` | Hero, class overview, schedule and first-class teasers, about, prices |
+| `/classes/` | `classes.html` | Every program, with a next step for each |
+| `/schedule/` | `schedule.html` | Live Mindbody schedule, with fallbacks |
+| `/first-class/` | `first-class.html` | Three steps to start, plus FAQ |
+| `/memberships/` | `memberships.html` | Record tiers, drop-in, private coaching (`#gold` etc. open a tier) |
+| `/about/` | `about.html` | The gym's story, values, coaches |
+| `/reviews/` | `reviews.html` | Google reviews and map |
+| `/shop/` | `shop.html` | Gym shop items |
+| `/contact/` | `contact.html` | Address, phone, email, directions, map |
+| `/cookies/` | `cookies.html` | Cookie details and settings button |
+
+The old URLs `/landing`, `/home` and `/cart`, and old anchors like `/#schedule` or `/landing#store`,
+redirect to the matching page.
+
+Other files: `public/assets/` (CSS, JS, self-hosted fonts, images), `wrangler.jsonc` (Cloudflare
+config), `design-reference/` (the ZIP's design source).
+
+## Cookie consent
+
+- Nothing from outside services loads until the visitor chooses. There are no analytics on the site
+  itself, and the fonts are self-hosted.
+- There are two optional categories:
+  - **Mindbody** (the schedule widget, which loads Mindbody's own analytics)
+  - **Google Maps** (the map on the Reviews and Contact pages)
+- The banner offers **Accept all**, **Essential only** and **Customize**. Accept and reject are given
+  the same weight.
+- If a service is off, its spot shows a "Show schedule" or "Show map" button and a direct link.
+- The choice is saved in `localStorage` (`rnrh-consent`). Visitors can reopen **Cookie settings** from
+  the footer on every page. Turning a service off reloads the page so it unloads.
+- To add a new embed, put it in `<template data-consent="CATEGORY">`, or use
+  `<script type="text/plain" data-consent="CATEGORY" data-src="…">`. Then add the category to
+  `site.js` and the settings dialog in `build.mjs`.
 
 ## Mindbody (do not change these values)
 
@@ -34,14 +62,14 @@ Then open http://localhost:4173. (`python3 -m http.server 4173 -d public` works 
   https://go.mindbodyonline.com/book/widgets/schedules/view/8026543dcae/schedule
 - Booking goes to Mindbody's branded checkout for studio **5743607**, location `loc_11kTzDYfqhLTDWgYxk`.
 - Class times live only in Mindbody. The page never hard-codes times.
-- If the widget hasn't rendered 12 seconds after a visitor nears the schedule, a notice with the
-  direct link appears. A permanent "Open on Mindbody" button and link are always shown too.
+- The widget script loads only after the visitor allows Mindbody (see Cookie consent). If it hasn't
+  rendered 12 seconds later, a notice with the direct link appears. A permanent "Open on Mindbody" button and link are always shown too.
 
 ## Google reviews
 
 The reviews section shows Google's own map embed for the listing, plus a **Read more on Google**
 button. To feature individual reviews, paste them into the `#google-reviews` JSON block in
-`index.html`. Copy each one word for word from the Google listing:
+`src/pages/reviews.html` (then `npm run build`). Copy each one word for word from the Google listing:
 
 ```json
 [
@@ -68,5 +96,5 @@ Only add a photo once the reviewer has given permission, or serve it through the
 - [ ] Confirm whether Boxing is still offered. It isn't on the Mindbody schedule, so the Vinyl copy now says
       "Muay Thai or Brazilian Jiu Jitsu".
 - [ ] Add a French version if wanted. The current site is English-only, so this redesign is too.
-- [ ] Cloudflare Workers (`rocknrollhousemma`) deploys with `npx wrangler deploy` and needs no build command.
-      Its production branch must exist in GitHub (it's set to `main`).
+- [ ] Cloudflare Workers (`rocknrollhousemma`) deploys `main` with `npx wrangler deploy`. No build command is needed.
+- [ ] Have someone check the cookie wording against Quebec's Law 25 before relying on it.

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.rocknrollhouse.com/sitemap.xml
